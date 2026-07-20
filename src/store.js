@@ -1,7 +1,7 @@
 import { defaultData } from './data'
 
 const KEY = 'omar-logistics-data-v1'
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000'
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
 const SITE_DATA_URL = `${API_BASE_URL}/api/site-data`
 
 export function getData() {
@@ -26,11 +26,12 @@ export async function fetchRemoteData() {
 export async function saveRemoteData(data) {
   saveData(data)
   try {
-    await fetch(SITE_DATA_URL, {
+    const response = await fetch(SITE_DATA_URL, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     })
+    if (!response.ok) throw new Error('Failed to save remote data')
   } catch {}
 }
 
