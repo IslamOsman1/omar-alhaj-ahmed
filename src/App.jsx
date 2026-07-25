@@ -141,6 +141,16 @@ const localizedService = (service, lang) => {
   }
 }
 
+const getServiceWhatsappMessage = (service, lang) => {
+  const customMessages = {
+    1: { ar: 'استشارة تخليص جمركي', en: 'Customs clearance consultation' },
+    2: { ar: 'طلب تسعير شحنة', en: 'Request a shipment quote' },
+    5: { ar: 'استفسار عن التخزين', en: 'Storage inquiry' }
+  }
+
+  return customMessages[service.id]?.[lang] || (lang === 'ar' ? `استفسار عن خدمة ${service.title}` : `Inquiry about ${service.title}`)
+}
+
 const localizedTechnology = (item, lang) => {
   const mapped = getMappedContent('technology', item.id, lang, {})
   return {
@@ -504,6 +514,7 @@ function About({ data, lang, t }) {
 
 function Services({ data, compact = false, lang, t }) {
   const items = data.services.map((service) => localizedService(service, lang))
+  const whatsappNumber = data.company.whatsapp.replace(/\D/g, '')
 
   return (
     <>
@@ -527,10 +538,21 @@ function Services({ data, compact = false, lang, t }) {
                 </div>
                 <h3>{service.title}</h3>
                 <p>{service.text}</p>
-                <span className="card-link">
-                  {t.professionalExecution}
-                  <ArrowLeft size={16} className={lang === 'en' ? 'flip-icon' : ''} />
-                </span>
+                <div className="service-card-actions">
+                  <span className="card-link">
+                    {t.professionalExecution}
+                    <ArrowLeft size={16} className={lang === 'en' ? 'flip-icon' : ''} />
+                  </span>
+                  <a
+                    className="service-whatsapp-btn"
+                    href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(getServiceWhatsappMessage(service, lang))}`}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <MessageCircle size={16} />
+                    {lang === 'ar' ? 'تواصل واتساب' : 'WhatsApp Contact'}
+                  </a>
+                </div>
               </article>
             ))}
           </div>

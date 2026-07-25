@@ -547,12 +547,40 @@ a{text-decoration:none;color:inherit}
   color:#f0ca79;
 }
 
+.service-card-actions{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:14px;
+  margin-top:18px;
+}
+
 .card-link{
   display:inline-flex;
   align-items:center;
   gap:6px;
   color:var(--gold);
   font-weight:800;
+}
+
+.service-whatsapp-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  min-width:112px;
+  padding:10px 14px;
+  border:1px solid rgba(255,255,255,.2);
+  border-radius:4px;
+  background:rgba(37,211,102,.92);
+  color:#fff;
+  font-weight:800;
+  transition:.2s ease;
+}
+
+.service-whatsapp-btn:hover{
+  transform:translateY(-2px);
+  background:#25d366;
 }
 
 .flip-icon{
@@ -1377,6 +1405,7 @@ th{
 .app.en .feature-list div,
 .app.en .btn,
 .app.en .card-link,
+.app.en .service-card-actions,
 .app.en .admin-link{
   flex-direction:row;
 }
@@ -1535,6 +1564,8 @@ th{
   .service-card,.step,.project-body,.contact-info,.contact-form,.panel,.dash-panel,.login-card,.job-card,.split-intro article{padding:20px}
   .service-card h3,.project-body h3,.gallery-card h3{font-size:21px}
   .service-card p,.project-body p,.contact-info p,.about-grid p,.step p,.testimonial-grid blockquote,.careers-copy p{font-size:14px}
+  .service-card-actions{flex-direction:column;align-items:flex-start}
+  .service-whatsapp-btn{width:100%}
   .project-visual{height:180px}
   .clients-strip{gap:24px;padding-bottom:12px}
   .client-box img{width:170px}
