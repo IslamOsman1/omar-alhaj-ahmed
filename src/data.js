@@ -19,7 +19,7 @@ export const defaultData = {
     name: 'Omar El Haj Ahmed',
     arabicName: 'عمر الحاج أحمد',
     tagline: 'Customs Clearance & Integrated Logistics',
-    heroTitle: 'نُسهّل حركة تجارتك من الميناء إلى وجهتك',
+    heroTitle: 'خبره ثلاثون عاما',
     heroText:
       'حلول احترافية في التخليص الجمركي والشحن والنقل والخدمات اللوجستية للشركات والأفراد، بسرعة وشفافية ومتابعة مستمرة.',
     phone: '+249 000 000 000',

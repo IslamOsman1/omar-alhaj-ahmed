@@ -330,6 +330,8 @@ function Home({ data, go, lang, t }) {
     [data.company.countries + '+', t.destinations]
   ]
   const [activeSlide, setActiveSlide] = useState(0)
+  const heroHeading = lang === 'ar' ? 'خبره ثلاثون عاما' : 'Thirty Years of Experience'
+  const heroButtonLabel = lang === 'ar' ? 'طلب تسعير' : 'Request a Quote'
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -351,6 +353,18 @@ function Home({ data, go, lang, t }) {
           ))}
         </div>
         <div className="container hero-grid">
+          <div className="hero-copy">
+            <span className="eyebrow">{lang === 'ar' ? 'خبرة تشغيلية' : 'Operational Experience'}</span>
+            <h1>{heroHeading}</h1>
+            <p>
+              {lang === 'ar'
+                ? data.company.heroText
+                : 'Integrated logistics and customs clearance solutions with fast execution and clear follow-up.'}
+            </p>
+            <button className="btn primary hero-cta" onClick={() => go('contact')}>
+              {heroButtonLabel}
+            </button>
+          </div>
           <div className="hero-visual hero-visual-full">
             <div className="hero-floating-card">
               <img src="/logo.jpeg" alt={t.brandAlt} />
