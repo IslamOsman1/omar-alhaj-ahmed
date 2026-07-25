@@ -53,6 +53,7 @@ export const defaultData = {
       title: 'التخليص الجمركي',
       icon: 'FileCheck2',
       text: 'إنهاء الإجراءات والمستندات الجمركية باحترافية وتقليل زمن الإفراج عن الشحنات.',
+      whatsappLabel: 'تواصل واتساب',
       image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80'
     },
     {
@@ -60,6 +61,7 @@ export const defaultData = {
       title: 'الشحن البحري',
       icon: 'Ship',
       text: 'تنسيق شحن الحاويات والبضائع العامة مع أفضل الخطوط والموانئ.',
+      whatsappLabel: 'تواصل واتساب',
       image: 'https://images.unsplash.com/photo-1494412651409-8963ce7935a7?auto=format&fit=crop&w=1200&q=80'
     },
     {
@@ -67,6 +69,7 @@ export const defaultData = {
       title: 'الشحن الجوي',
       icon: 'Plane',
       text: 'شحن جوي سريع وآمن للشحنات العاجلة والحساسة.',
+      whatsappLabel: 'تواصل واتساب',
       image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80'
     },
     {
@@ -74,6 +77,7 @@ export const defaultData = {
       title: 'النقل البري',
       icon: 'Truck',
       text: 'شبكة نقل لتوصيل البضائع من الميناء إلى المستودع أو موقع العميل.',
+      whatsappLabel: 'تواصل واتساب',
       image: 'https://images.unsplash.com/photo-1501700493788-fa1a4fc9fe62?auto=format&fit=crop&w=1200&q=80'
     },
     {
@@ -81,6 +85,7 @@ export const defaultData = {
       title: 'التخزين والمستودعات',
       icon: 'Warehouse',
       text: 'حلول تخزين مرنة وآمنة مع تنظيم ومتابعة للمخزون.',
+      whatsappLabel: 'تواصل واتساب',
       image: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=80'
     },
     {
@@ -88,6 +93,7 @@ export const defaultData = {
       title: 'الاستشارات اللوجستية',
       icon: 'ChartNoAxesCombined',
       text: 'تخطيط سلاسل الإمداد وتقليل التكاليف وتحسين زمن التسليم.',
+      whatsappLabel: 'تواصل واتساب',
       image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80'
     }
   ],
@@ -145,12 +151,48 @@ export const defaultData = {
     }
   ],
   clientsLogos: [
-    { id: 1, name: 'Blue Nile Trading', logo: makeClientLogo('BLUE NILE', '#1e3a5f', '#2f6fa3') },
-    { id: 2, name: 'Red Sea Foods', logo: makeClientLogo('RED SEA', '#0f766e', '#22c55e') },
-    { id: 3, name: 'Port Gate Industry', logo: makeClientLogo('PORT GATE', '#7c3aed', '#2563eb') },
-    { id: 4, name: 'Atlas Export', logo: makeClientLogo('ATLAS', '#b45309', '#f59e0b') },
-    { id: 5, name: 'Sudan Retail Group', logo: makeClientLogo('SUDAN RETAIL', '#374151', '#111827') },
-    { id: 6, name: 'East Cargo', logo: makeClientLogo('EAST CARGO', '#be123c', '#fb7185') }
+    {
+      id: 1,
+      name: 'Blue Nile Trading',
+      logo: makeClientLogo('BLUE NILE', '#1e3a5f', '#2f6fa3'),
+      text: 'شريك تجاري في الاستيراد والتوزيع يعتمد على حلول لوجستية منظمة وسريعة.',
+      enText: 'A trading partner in import and distribution that relies on fast, well-organized logistics solutions.'
+    },
+    {
+      id: 2,
+      name: 'Red Sea Foods',
+      logo: makeClientLogo('RED SEA', '#0f766e', '#22c55e'),
+      text: 'شركة أغذية تحتاج إلى متابعة دقيقة للشحنات وسرعة في التخليص والتوريد.',
+      enText: 'A food company that needs precise shipment follow-up with fast clearance and supply delivery.'
+    },
+    {
+      id: 3,
+      name: 'Port Gate Industry',
+      logo: makeClientLogo('PORT GATE', '#7c3aed', '#2563eb'),
+      text: 'قطاع صناعي يتطلب تنسيقاً تشغيلياً عالي الدقة للمعدات والمواد.',
+      enText: 'An industrial partner requiring high-precision operational coordination for equipment and materials.'
+    },
+    {
+      id: 4,
+      name: 'Atlas Export',
+      logo: makeClientLogo('ATLAS', '#b45309', '#f59e0b'),
+      text: 'عميل في التصدير الدولي يحتاج إلى حلول شحن مرنة وتقارير واضحة.',
+      enText: 'An international export client that needs flexible freight solutions and clear reporting.'
+    },
+    {
+      id: 5,
+      name: 'Sudan Retail Group',
+      logo: makeClientLogo('SUDAN RETAIL', '#374151', '#111827'),
+      text: 'مجموعة تجزئة تعتمد على تنظيم الإمداد والتخزين لضمان استمرارية التوزيع.',
+      enText: 'A retail group that depends on structured supply and storage operations for continuous distribution.'
+    },
+    {
+      id: 6,
+      name: 'East Cargo',
+      logo: makeClientLogo('EAST CARGO', '#be123c', '#fb7185'),
+      text: 'شريك لوجستي يستفيد من حلول النقل والمتابعة الميدانية في مختلف المراحل.',
+      enText: 'A logistics partner benefiting from transport solutions and on-ground follow-up across all stages.'
+    }
   ],
   gallery: [
     {

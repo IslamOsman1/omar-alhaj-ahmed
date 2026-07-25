@@ -645,7 +645,19 @@ a{text-decoration:none;color:inherit}
   flex:0 0 auto;
   display:grid;
   place-items:center;
-  padding:0;
+  gap:14px;
+  min-width:248px;
+  padding:18px 18px 14px;
+  border:1px solid #e1e8ef;
+  background:#fff;
+  box-shadow:var(--shadow-soft);
+  cursor:pointer;
+  transition:.2s ease;
+}
+
+.client-box:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow);
 }
 
 .client-box img{
@@ -654,6 +666,105 @@ a{text-decoration:none;color:inherit}
   height:auto;
   object-fit:contain;
   filter:saturate(.98);
+}
+
+.client-box span{
+  color:var(--navy);
+  font-weight:800;
+  text-align:center;
+}
+
+.client-modal-backdrop{
+  position:fixed;
+  inset:0;
+  background:rgba(8,20,36,.72);
+  display:grid;
+  place-items:center;
+  padding:22px;
+  z-index:120;
+}
+
+.client-modal{
+  width:min(860px,100%);
+  display:grid;
+  grid-template-columns:minmax(260px,360px) minmax(0,1fr);
+  background:linear-gradient(135deg,#fff,#f5f8fb);
+  box-shadow:0 28px 70px rgba(6,18,31,.28);
+  position:relative;
+  overflow:hidden;
+}
+
+.client-modal::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(135deg,rgba(200,155,60,.08),transparent 32%),
+    linear-gradient(315deg,rgba(22,52,86,.1),transparent 40%);
+  pointer-events:none;
+}
+
+.client-modal-close{
+  position:absolute;
+  top:16px;
+  left:16px;
+  width:40px;
+  height:40px;
+  border:0;
+  background:rgba(15,39,65,.08);
+  color:var(--navy);
+  display:grid;
+  place-items:center;
+  cursor:pointer;
+  z-index:2;
+}
+
+.client-modal-media,
+.client-modal-copy{
+  position:relative;
+  z-index:1;
+}
+
+.client-modal-media{
+  display:grid;
+  place-items:center;
+  padding:46px 28px 32px;
+  background:linear-gradient(180deg,rgba(22,52,86,.06),rgba(22,52,86,.12));
+}
+
+.client-modal-media img{
+  width:min(100%,280px);
+  background:#fff;
+  padding:20px;
+  box-shadow:var(--shadow-soft);
+}
+
+.client-modal-copy{
+  padding:54px 40px 40px;
+}
+
+.client-modal-copy span{
+  display:inline-block;
+  color:var(--gold);
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.8px;
+  text-transform:uppercase;
+  margin-bottom:16px;
+}
+
+.client-modal-copy h3{
+  margin:0 0 14px;
+  color:var(--navy);
+  font-size:clamp(28px,4vw,42px);
+  line-height:1.15;
+}
+
+.client-modal-copy p{
+  margin:0;
+  color:var(--muted);
+  font-size:18px;
+  line-height:1.95;
 }
 
 .gallery-grid{
@@ -1568,7 +1679,11 @@ th{
   .service-whatsapp-btn{width:100%}
   .project-visual{height:180px}
   .clients-strip{gap:24px;padding-bottom:12px}
+  .client-box{min-width:210px;padding:16px 14px 12px}
   .client-box img{width:170px}
+  .client-modal{grid-template-columns:1fr}
+  .client-modal-copy{padding:24px 22px 26px}
+  .client-modal-copy p{font-size:15px}
   .cta{padding:40px 0}
   .cta h2{font-size:26px}
   .page-head{padding:72px 0}
@@ -1651,7 +1766,12 @@ th{
   .stats-grid b{font-size:24px}
   .service-card,.step,.project-body,.contact-info,.contact-form,.panel,.dash-panel,.login-card,.job-card,.split-intro article{padding:16px}
   .testimonial-grid blockquote{padding:18px;font-size:13px}
+  .client-box{min-width:180px;padding:14px 12px 10px}
   .client-box img{width:145px}
+  .client-box span{font-size:13px}
+  .client-modal-media{padding:52px 18px 18px}
+  .client-modal-copy h3{font-size:24px}
+  .client-modal-copy p{font-size:14px;line-height:1.8}
   .sidebar button{font-size:12px}
   .dash-card span,th,td,input,textarea,select{font-size:13px}
   .whatsapp{width:46px;height:46px}

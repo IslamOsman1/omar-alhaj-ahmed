@@ -178,6 +178,11 @@ const localizedGallery = (item, lang) => {
   }
 }
 
+const localizedClient = (item, lang) => ({
+  ...item,
+  text: localeText(lang, item.text, item.enText)
+})
+
 const localizedJob = (job, lang) => {
   const mapped = getMappedContent('jobs', job.id, lang, {})
   return {
@@ -559,7 +564,7 @@ function Services({ data, compact = false, lang, t }) {
                     rel="noreferrer"
                   >
                     <MessageCircle size={16} />
-                    {lang === 'ar' ? 'تواصل واتساب' : 'WhatsApp Contact'}
+                    {service.whatsappLabel || (lang === 'ar' ? 'تواصل واتساب' : 'WhatsApp Contact')}
                   </a>
                 </div>
               </article>
@@ -606,6 +611,9 @@ function Technology({ data, compact = false, lang, t }) {
 }
 
 function Clients({ data, compact = false, lang, t }) {
+  const [selectedClient, setSelectedClient] = useState(null)
+  const items = data.clientsLogos.map((client) => localizedClient(client, lang))
+
   return (
     <>
       {!compact && <PageHead title={t.clientsPageTitle} sub={t.clientsPageSub} />}
@@ -617,14 +625,33 @@ function Clients({ data, compact = false, lang, t }) {
             <h2>{compact ? t.clientsCompactTitle : t.clientsFullTitle}</h2>
           </div>
           <div className="clients-strip">
-            {data.clientsLogos.map((client) => (
-              <div className="client-box" key={client.id}>
+            {items.map((client) => (
+              <button className="client-box" key={client.id} onClick={() => setSelectedClient(client)}>
                 <img src={client.logo} alt={client.name} />
-              </div>
+                <span>{client.name}</span>
+              </button>
             ))}
           </div>
         </div>
       </section>
+
+      {selectedClient && (
+        <div className="client-modal-backdrop" onClick={() => setSelectedClient(null)}>
+          <div className="client-modal" onClick={(event) => event.stopPropagation()}>
+            <button className="client-modal-close" onClick={() => setSelectedClient(null)} aria-label="close">
+              <X size={18} />
+            </button>
+            <div className="client-modal-media">
+              <img src={selectedClient.logo} alt={selectedClient.name} />
+            </div>
+            <div className="client-modal-copy">
+              <span>{lang === 'ar' ? 'عرض احترافي' : 'Professional Showcase'}</span>
+              <h3>{selectedClient.name}</h3>
+              <p>{selectedClient.text || selectedClient.name}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   )
 }
@@ -1164,7 +1191,7 @@ function Admin({ data, update, logged, setLogged, go }) {
             company={draft.company}
             items={draft.services}
             setItems={(items) => setDraft({ ...draft, services: items })}
-            fields={['title', 'icon', 'text', 'image']}
+            fields={['title', 'icon', 'text', 'whatsappLabel', 'image']}
           />
         )}
 
@@ -1182,7 +1209,7 @@ function Admin({ data, update, logged, setLogged, go }) {
             company={draft.company}
             items={draft.clientsLogos}
             setItems={(items) => setDraft({ ...draft, clientsLogos: items })}
-            fields={['name', 'logo']}
+            fields={['name', 'logo', 'text']}
           />
         )}
 
