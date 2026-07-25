@@ -225,7 +225,7 @@ export default function App() {
               <button className="brand" onClick={() => go('home')}>
                 <img src="/logo.jpeg" alt={t.brandAlt} />
                 <span>
-                  <b>{lang === 'ar' ? data.company.arabicName : data.company.name}</b>
+                  <b>{data.company.name}</b>
                   <small>{t.customsClearance}</small>
                 </span>
               </button>
@@ -354,6 +354,13 @@ function Home({ data, go, lang, t }) {
         </div>
         <div className="container hero-grid">
           <div className="hero-copy">
+            <div className="hero-floating-card hero-copy-card">
+              <img src="/logo.jpeg" alt={t.brandAlt} />
+              <div>
+                <span>O&M LOGISTICS</span>
+                <strong>{data.company.name}</strong>
+              </div>
+            </div>
             <span className="eyebrow">{lang === 'ar' ? 'خبرة تشغيلية' : 'Operational Experience'}</span>
             <h1>{heroHeading}</h1>
             <p>
@@ -366,13 +373,6 @@ function Home({ data, go, lang, t }) {
             </button>
           </div>
           <div className="hero-visual hero-visual-full">
-            <div className="hero-floating-card">
-              <img src="/logo.jpeg" alt={t.brandAlt} />
-              <div>
-                <span>O&M LOGISTICS</span>
-                <strong>{lang === 'ar' ? data.company.arabicName : data.company.name}</strong>
-              </div>
-            </div>
             <div className="hero-slider-nav">
               {heroSlides.map((slide, index) => (
                 <button
@@ -468,7 +468,7 @@ function About({ data, lang, t }) {
               </div>
             </div>
           </div>
-          <img className="about-img" src="/logo.jpeg" alt={lang === 'ar' ? data.company.arabicName : data.company.name} />
+          <img className="about-img" src="/logo.jpeg" alt={data.company.name} />
         </div>
       </section>
 
@@ -898,7 +898,7 @@ function Footer({ data, go, lang, t }) {
 
         <div>
           <img src="/logo.jpeg" alt={t.brandAlt} />
-          <h3>{lang === 'ar' ? data.company.arabicName : data.company.name}</h3>
+          <h3>{data.company.name}</h3>
           <p>{data.company.tagline}</p>
         </div>
 
