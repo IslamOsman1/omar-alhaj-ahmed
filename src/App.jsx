@@ -78,6 +78,12 @@ const labels = {
   supportHours: 'ساعات الدعم',
   mapQuery: 'استعلام الخريطة',
   mapUrl: 'رابط الخريطة',
+  aboutHeadingAr: 'عنوان نبذة عنا بالعربية',
+  aboutHeadingEn: 'عنوان نبذة عنا بالإنجليزية',
+  aboutP1Ar: 'الفقرة الأولى بالعربية',
+  aboutP1En: 'الفقرة الأولى بالإنجليزية',
+  aboutP2Ar: 'الفقرة الثانية بالعربية',
+  aboutP2En: 'الفقرة الثانية بالإنجليزية',
   cloudinaryCloudName: 'Cloudinary Cloud Name',
   cloudinaryUploadPreset: 'Cloudinary Upload Preset'
 }
@@ -443,6 +449,10 @@ function PageHead({ title, sub }) {
 }
 
 function About({ data, lang, t }) {
+  const aboutHeading = lang === 'ar' ? data.company.aboutHeadingAr || t.aboutHeading : data.company.aboutHeadingEn || t.aboutHeading
+  const aboutP1 = lang === 'ar' ? data.company.aboutP1Ar || t.aboutP1 : data.company.aboutP1En || t.aboutP1
+  const aboutP2 = lang === 'ar' ? data.company.aboutP2Ar || t.aboutP2 : data.company.aboutP2En || t.aboutP2
+
   return (
     <>
       <PageHead title={t.aboutPageTitle} sub={t.aboutPageSub} />
@@ -450,9 +460,9 @@ function About({ data, lang, t }) {
         <div className="container about-grid">
           <div>
             <span className="eyebrow dark">{t.companyLabel}</span>
-            <h2>{t.aboutHeading}</h2>
-            <p>{t.aboutP1}</p>
-            <p>{t.aboutP2}</p>
+            <h2>{aboutHeading}</h2>
+            <p>{aboutP1}</p>
+            <p>{aboutP2}</p>
             <div className="feature-list">
               <div>
                 <BadgeCheck />
@@ -1099,10 +1109,10 @@ function Admin({ data, update, logged, setLogged, go }) {
 
         {tab === 'about' && (
           <div className="panel form-grid">
-            {['name', 'arabicName', 'tagline', 'address'].map((key) => (
+            {['name', 'arabicName', 'tagline', 'address', 'aboutHeadingAr', 'aboutHeadingEn', 'aboutP1Ar', 'aboutP1En', 'aboutP2Ar', 'aboutP2En'].map((key) => (
               <label key={key}>
                 <span>{labels[key] || key}</span>
-                {key === 'address' ? (
+                {['address', 'aboutP1Ar', 'aboutP1En', 'aboutP2Ar', 'aboutP2En'].includes(key) ? (
                   <textarea
                     value={draft.company[key]}
                     onChange={(e) => setDraft({ ...draft, company: { ...draft.company, [key]: e.target.value } })}

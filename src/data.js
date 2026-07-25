@@ -34,6 +34,16 @@ export const defaultData = {
     supportHours: '24/7',
     mapQuery: 'Port Sudan, Sudan',
     mapUrl: 'https://www.google.com/maps?q=Port%20Sudan%2C%20Sudan',
+    aboutHeadingAr: 'خبرة تشغيلية تدعم النمو وتُبسط حركة الشحن',
+    aboutHeadingEn: 'Operational experience that supports growth and simplifies cargo movement',
+    aboutP1Ar:
+      'نقدم حلولاً لوجستية مرنة تربط بين التخليص الجمركي والشحن والنقل والتخزين. نعمل مع الشركات والأفراد لبناء تجربة أكثر انضباطاً ووضوحاً من لحظة استلام الطلب وحتى التسليم.',
+    aboutP1En:
+      'We provide flexible logistics solutions that connect customs clearance, freight, transport, and storage. We help companies and individuals move from request to delivery with clarity and control.',
+    aboutP2Ar:
+      'نعتمد على فريق ميداني وخبرة عملية في إدارة المستندات وتنسيق الشحنات ومتابعة الجهات المختلفة، مع التركيز على تقليل فترات الانتظار والتعطيل قدر الإمكان.',
+    aboutP2En:
+      'Our field team brings hands-on experience in document handling, shipment coordination, and stakeholder follow-up, with a strong focus on reducing delays and downtime.',
     cloudinaryCloudName: '',
     cloudinaryUploadPreset: ''
   },
