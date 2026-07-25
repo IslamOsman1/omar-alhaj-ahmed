@@ -143,12 +143,21 @@ const localizedService = (service, lang) => {
 
 const getServiceWhatsappMessage = (service, lang) => {
   const customMessages = {
-    1: { ar: 'استشارة تخليص جمركي', en: 'Customs clearance consultation' },
-    2: { ar: 'طلب تسعير شحنة', en: 'Request a shipment quote' },
-    5: { ar: 'استفسار عن التخزين', en: 'Storage inquiry' }
+    1: {
+      ar: `استشارة بخصوص خدمة ${service.title}`,
+      en: `Consultation about ${service.title}`
+    },
+    2: {
+      ar: `طلب تسعير لخدمة ${service.title}`,
+      en: `Quote request for ${service.title}`
+    },
+    5: {
+      ar: `استفسار عن خدمة ${service.title}`,
+      en: `Inquiry about ${service.title}`
+    }
   }
 
-  return customMessages[service.id]?.[lang] || (lang === 'ar' ? `استفسار عن خدمة ${service.title}` : `Inquiry about ${service.title}`)
+  return customMessages[service.id]?.[lang] || (lang === 'ar' ? `أرغب بالاستفسار عن خدمة ${service.title}` : `I would like to inquire about ${service.title}`)
 }
 
 const localizedTechnology = (item, lang) => {
